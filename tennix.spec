@@ -24,7 +24,7 @@ audience sounds, and ball shadows.
 
 %description -l pl.UTF-8
 Tennix! jest prostą grą w tenisa dla dwóch graczy. Cechuje ją proste
-ładowanie obrazków (które z łatwością można edytować z pomocą
+ładowanie obrazków (które z łatwością można edytować za pomocą
 programów graficznych takich jak GIMP), efekty dźwiękowe, odgłosy
 widowni oraz cieniowanie piłki.
 
