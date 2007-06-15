@@ -1,5 +1,5 @@
 Summary:	A simple two-player tennis game
-Summary(pl.UTF-8):Prosta gra w tenisa dla dw�ch graczy
+Summary(pl.UTF-8):Prosta gra w tenisa dla dwóch graczy
 Name:		tennix
 Version:	0.3.0
 Release:	1
@@ -23,10 +23,10 @@ them with a graphics editor like The GIMP), sound effects, stadium
 audience sounds, and ball shadows.
 
 %description -l pl.UTF-8
-Tennix! jest prost� gr� w tenisa dla dw�ch graczy. Cechuje j� proste
-�adowanie obrazk�w (kt�re z �atwo�ci� mo�na edytowa� za pomoc�
-program�w graficznych takich jak GIMP), efekty d�wi�kowe, odg�osy
-widowni oraz cieniowanie pi�ki.
+Tennix! jest prostą grą w tenisa dla dwóch graczy. Cechuje ją proste
+ładowanie obrazków (które z łatwością można edytować z pomocą
+programów graficznych takich jak GIMP), efekty dźwiękowe, odgłosy
+widowni oraz cieniowanie piłki.
 
 %prep
 %setup -q
