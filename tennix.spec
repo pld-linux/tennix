@@ -35,9 +35,10 @@ widowni oraz cieniowanie piłki.
 %{__sed} -i 's@data@%{_datadir}/%{name}@' tennix.h
 
 %build
+# CFLAGS through env for CFLAGS+= to work in makefile
+CFLAGS="%{rpmcflags}" \
 %{__make} \
-	CC="%{__cc}" \
-	CXXFLAGS="%{rpmcxxflags}"
+	CC="%{__cc}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
