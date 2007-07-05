@@ -10,7 +10,7 @@ Source0:	http://thpinfo.com/2007/tennix/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Patch0:		%{name}-datadir.patch
 Patch1:		%{name}-makefile.patch
-URL:		http://thpinfo.com/2007/tennix/
+URL:		http://icculus.org/tennix/
 BuildRequires:	SDL_image-devel
 BuildRequires:	SDL_mixer-devel
 BuildRequires:	sed >= 4.0
