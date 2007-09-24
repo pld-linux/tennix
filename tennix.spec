@@ -1,15 +1,14 @@
 Summary:	A simple two-player tennis game
 Summary(pl.UTF-8):	Prosta gra w tenisa dla dwóch graczy
 Name:		tennix
-Version:	0.3.2
+Version:	0.4.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games
 Source0:	http://thpinfo.com/2007/tennix/%{name}-%{version}.tar.gz
-# Source0-md5:	3774282cd88c4fa917e9768d210c1076
+# Source0-md5:	3f0f177aea7f869686230fc30662fbb0
 Source1:	%{name}.desktop
-Patch0:		%{name}-datadir.patch
-Patch1:		%{name}-makefile.patch
+Patch0:		%{name}-makefile.patch
 URL:		http://icculus.org/tennix/
 BuildRequires:	SDL-devel
 BuildRequires:	SDL_image-devel
@@ -32,14 +31,12 @@ widowni oraz cieniowanie piłki.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
-%{__sed} -i 's@data@%{_datadir}/%{name}@' tennix.h
+# Some trouble with pass CFLAGS in build section
+%{__sed} -i 's@CFLAGS +=@CFLAGS += %{rpmcflags}@' makefile
 
 %build
 %{__make} \
 	CC="%{__cc}" \
-	LIBS="-lSDL -lpthread -lSDL_mixer -lSDL_image" \
-	CFLAGS="%{rpmcflags} -DVERSION=\'%{version}\' -I/usr/include/SDL" \
 	LDFLAGS="%{rpmldflags}"
 
 %install
@@ -48,7 +45,7 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name},%{_desktopdir},%{_pixm
 
 install %{name} $RPM_BUILD_ROOT%{_bindir}
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
-install data/tennix-icon.png $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
+install data/icon.png $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
 cp -r data/* $RPM_BUILD_ROOT%{_datadir}/%{name}
 
 %clean
