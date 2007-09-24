@@ -23,10 +23,10 @@ them with a graphics editor like The GIMP), sound effects, stadium
 audience sounds, and ball shadows.
 
 %description -l pl.UTF-8
-Tennix! jest prostą grą w tenisa dla dwóch graczy. Cechuje ją proste
-ładowanie obrazków (które z łatwością można modyfikować za pomocą
-programów graficznych takich jak GIMP), efekty dźwiękowe, odgłosy
-widowni oraz cieniowanie piłki.
+Tennix! jest prostą grą w tenisa dla dwóch graczy. Cechuje ją
+proste ładowanie obrazków (które z łatwością można modyfikować
+za pomocą programów graficznych takich jak GIMP), efekty
+dźwiękowe, odgłosy widowni oraz cieniowanie piłki.
 
 %prep
 %setup -q
