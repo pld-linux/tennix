@@ -7,8 +7,8 @@ License:	GPL v2+
 Group:		X11/Applications/Games
 Source0:	http://thpinfo.com/2007/tennix/%{name}-%{version}.tar.gz
 # Source0-md5:	3f0f177aea7f869686230fc30662fbb0
-Source1:	%{name}.desktop
 Patch0:		%{name}-makefile.patch
+Patch1:		%{name}-desktop.patch
 URL:		http://icculus.org/tennix/
 BuildRequires:	SDL-devel
 BuildRequires:	SDL_image-devel
@@ -31,6 +31,7 @@ dźwiękowe, odgłosy widowni oraz cieniowanie piłki.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 # Some trouble with pass CFLAGS in build section
 %{__sed} -i 's@CFLAGS +=@CFLAGS += %{rpmcflags}@' makefile
 
@@ -44,7 +45,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name},%{_desktopdir},%{_pixmapsdir}}
 
 install %{name} $RPM_BUILD_ROOT%{_bindir}
-install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
+install tennix.desktop $RPM_BUILD_ROOT%{_desktopdir}
 install data/icon.png $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
 cp -r data/* $RPM_BUILD_ROOT%{_datadir}/%{name}
 
