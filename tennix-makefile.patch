@@ -1,19 +1,19 @@
---- tennix-0.3.2/makefile~	2007-07-15 23:40:49.000000000 +0200
-+++ tennix-0.3.2/makefile	2007-07-15 23:40:08.000000000 +0200
-@@ -20,6 +20,7 @@
- #
+--- tennix-0.4.1/makefile~	2007-09-24 22:04:45.000000000 +0200
++++ tennix-0.4.1/makefile	2007-09-24 22:04:43.000000000 +0200
+@@ -28,6 +28,7 @@
  
- CC        =  gcc
-+CXXFLAGS  =
- RELEASE   =  0.3.2
+ LIBS =
+ CFLAGS += -Wall -DVERSION=\"$(RELEASE)\"
++LDFLAGS =
  
- TARGET ?= default
-@@ -51,7 +52,7 @@
+ ifeq ($(DEBUG),1)
+   CFLAGS += -DDEBUG
+@@ -53,7 +54,7 @@
  endif
  
  tennix: $(OBJ)
 -	$(CC) $(CFLAGS)   -o tennix $(OBJ) $(LIBS)
-+	$(CC) $(CXXFLAGS) $(CFLAGS) $(LDFLAGS)   -o tennix $(OBJ) $(LIBS)
++	$(CC) $(CFLAGS) $(LDFLAGS)   -o tennix $(OBJ) $(LIBS)
  	test -f tennix.exe && upx tennix.exe || true 
  
- tennix.o: tennix.c tennix.h game.h graphics.h input.h sound.h
+ install: tennix
