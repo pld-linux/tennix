@@ -1,0 +1,17 @@
+--- tennix-0.4.1/tennix.desktop~	2007-09-23 23:24:28.000000000 +0200
++++ tennix-0.4.1/tennix.desktop	2007-09-24 22:40:21.000000000 +0200
+@@ -1,9 +1,13 @@
+ [Desktop Entry]
+ Name=Tennix!
+ GenericName=Tennis game
++GenericName[pl]=Gra w tenisa
+ Comment=Play tennis against the computer or a friend
++Comment[pl]=Zagraj w tenisa przeciwko komputerowi lub z przyjacielem
+ Exec=tennix
+-Icon=tennix
++Icon=tennix.png
+ Terminal=false
+ Type=Application
+ Categories=Game;SportsGame;
++Encoding=UTF-8
++# vi: encoding=utf-8
