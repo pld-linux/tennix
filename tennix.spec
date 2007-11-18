@@ -1,19 +1,18 @@
 Summary:	A simple two-player tennis game
 Summary(pl.UTF-8):	Prosta gra w tenisa dla dwóch graczy
 Name:		tennix
-Version:	0.4.1
+Version:	0.4.2
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games
 Source0:	http://thpinfo.com/2007/tennix/%{name}-%{version}.tar.gz
-# Source0-md5:	3f0f177aea7f869686230fc30662fbb0
+# Source0-md5:	ffb81f0cea9e4ddd3aa24b29c77499b1
 Patch0:		%{name}-makefile.patch
 Patch1:		%{name}-desktop.patch
 URL:		http://icculus.org/tennix/
 BuildRequires:	SDL-devel
 BuildRequires:	SDL_image-devel
 BuildRequires:	SDL_mixer-devel
-BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -32,12 +31,11 @@ dźwiękowe, odgłosy widowni oraz cieniowanie piłki.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-# Some trouble with pass CFLAGS in build section
-%{__sed} -i 's@CFLAGS +=@CFLAGS += %{rpmcflags}@' makefile
 
 %build
 %{__make} \
 	CC="%{__cc}" \
+	CFLAGS="%{rpmcflags} -DVERSION=\\\"%{version}\\\" `sdl-config --cflags` "  \
 	LDFLAGS="%{rpmldflags}"
 
 %install
