@@ -35,7 +35,7 @@ dźwiękowe, odgłosy widowni oraz cieniowanie piłki.
 %build
 %{__make} \
 	CC="%{__cc}" \
-	CFLAGS="%{rpmcflags} -DVERSION=\\\"%{version}\\\" `sdl-config --cflags` "  \
+	CFLAGS="%{rpmcflags} -DVERSION=\\\"%{version}\\\" `sdl-config --cflags`" \
 	LDFLAGS="%{rpmldflags}"
 
 %install
