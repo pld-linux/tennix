@@ -1,14 +1,15 @@
 Summary:	A simple two-player tennis game
 Summary(pl.UTF-8):	Prosta gra w tenisa dla dwóch graczy
 Name:		tennix
-Version:	0.6.1
+Version:	0.7.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games
 Source0:	http://icculus.org/tennix/releases/%{name}-%{version}.tar.gz
-# Source0-md5:	5979d0e3f683808ad492a0691430f259
+# Source0-md5:	a0ef7a49b31d1755c46869333f756051
 Patch0:		%{name}-makefile.patch
 Patch1:		%{name}-desktop.patch
+Patch2:		%{name}-path.patch
 URL:		http://icculus.org/tennix/
 BuildRequires:	SDL-devel
 BuildRequires:	SDL_image-devel
@@ -31,6 +32,7 @@ dźwiękowe, odgłosy widowni oraz cieniowanie piłki.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__make} \
@@ -45,6 +47,8 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name},%{_desktopdir},%{_pixm
 install %{name} $RPM_BUILD_ROOT%{_bindir}
 install tennix.desktop $RPM_BUILD_ROOT%{_desktopdir}
 install data/icon.png $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
+
+install tennix.tnx $RPM_BUILD_ROOT%{_datadir}/%{name}
 cp -r data/* $RPM_BUILD_ROOT%{_datadir}/%{name}
 
 %clean
