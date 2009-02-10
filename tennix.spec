@@ -11,7 +11,6 @@ Patch0:		%{name}-makefile.patch
 Patch1:		%{name}-desktop.patch
 Patch2:		%{name}-path.patch
 URL:		http://icculus.org/tennix/
-BuildRequires:	SDL-devel
 BuildRequires:	SDL_image-devel
 BuildRequires:	SDL_mixer-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
