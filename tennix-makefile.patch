@@ -1,19 +1,19 @@
---- tennix-0.4.1/makefile~	2007-09-24 22:04:45.000000000 +0200
-+++ tennix-0.4.1/makefile	2007-09-24 22:04:43.000000000 +0200
-@@ -28,6 +28,7 @@
+--- tennix-0.7.0/makefile~	2009-02-10 15:19:32.000000000 +0100
++++ tennix-0.7.0/makefile	2009-02-10 15:24:38.000000000 +0100
+@@ -34,6 +34,7 @@
  
  LIBS =
- CFLAGS += -Wall -DVERSION=\"$(RELEASE)\"
+ CFLAGS += -Wall -DVERSION=\"$(RELEASE)\" -O2 -DPREFIX=\"$(PREFIX)\"
 +LDFLAGS =
  
- ifeq ($(DEBUG),1)
-   CFLAGS += -DDEBUG
-@@ -53,7 +54,7 @@
+ ifeq ($(UPDRECTANGLE),1)
+   CFLAGS += -DDRAW_UPDATE_RECTANGLE
+@@ -76,7 +77,7 @@
  endif
  
- tennix: $(OBJ)
+ tennix: $(OBJ) tennix.tnx
 -	$(CC) $(CFLAGS)   -o tennix $(OBJ) $(LIBS)
 +	$(CC) $(CFLAGS) $(LDFLAGS)   -o tennix $(OBJ) $(LIBS)
  	test -f tennix.exe && upx tennix.exe || true 
  
- install: tennix
+ ChangeLog:
