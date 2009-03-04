@@ -1,12 +1,12 @@
 Summary:	A simple two-player tennis game
 Summary(pl.UTF-8):	Prosta gra w tenisa dla dwóch graczy
 Name:		tennix
-Version:	0.7.0
+Version:	1.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games
-Source0:	http://icculus.org/tennix/releases/%{name}-%{version}.tar.gz
-# Source0-md5:	a0ef7a49b31d1755c46869333f756051
+Source0:	http://icculus.org/tennix/downloads/%{name}-%{version}.tar.gz
+# Source0-md5:	b6eba0d14c096a8c35ecaf18fa859fb7
 Patch0:		%{name}-makefile.patch
 Patch1:		%{name}-desktop.patch
 Patch2:		%{name}-path.patch
