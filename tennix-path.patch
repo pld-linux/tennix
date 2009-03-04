@@ -1,11 +1,11 @@
---- tennix-0.7.0/tennix.h~	2009-02-06 00:38:26.000000000 +0100
-+++ tennix-0.7.0/tennix.h	2009-02-10 15:27:53.000000000 +0100
-@@ -34,7 +34,7 @@
+--- tennix-1.0/tennix.h~	2009-03-04 13:25:47.000000000 +0100
++++ tennix-1.0/tennix.h	2009-03-04 13:26:53.000000000 +0100
+@@ -37,7 +37,7 @@
+ #ifdef MACOSX
+ #  define ARCHIVE_FILE_INSTALLED "Tennix.app/Contents/Resources/" ARCHIVE_FILE
+ #else
+-#  define ARCHIVE_FILE_INSTALLED "/" PREFIX "/share/games/tennix/" ARCHIVE_FILE
++#  define ARCHIVE_FILE_INSTALLED "/usr/share/tennix/tennix.tnx"
  #endif
  
- #define ARCHIVE_FILE "tennix.tnx"
--#define ARCHIVE_FILE_INSTALLED "/" PREFIX "share/tennix/" ARCHIVE_FILE
-+#define ARCHIVE_FILE_INSTALLED "/usr/share/tennix/tennix.tnx"
- 
- #define COPYRIGHT "Copyright 2003, 2007, 2008, 2009 Thomas Perl"
- #define URL "http://icculus.org/tennix/"
+ #ifdef WIN32

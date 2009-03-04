@@ -1,14 +1,22 @@
---- tennix-0.7.0/makefile~	2009-02-10 15:19:32.000000000 +0100
-+++ tennix-0.7.0/makefile	2009-02-10 15:24:38.000000000 +0100
-@@ -34,6 +34,7 @@
+--- tennix-1.0/makefile~	2009-03-04 13:28:40.000000000 +0100
++++ tennix-1.0/makefile	2009-03-04 13:28:00.000000000 +0100
+@@ -36,13 +36,14 @@
  
  LIBS =
- CFLAGS += -Wall -DVERSION=\"$(RELEASE)\" -O2 -DPREFIX=\"$(PREFIX)\"
+ CFLAGS += -std=c99 -W -Wall -ansi -pedantic -Wcast-qual -Wwrite-strings -DVERSION=\"$(RELEASE)\" -O2 -DPREFIX=\"$(PREFIX)\" -g
 +LDFLAGS =
  
- ifeq ($(UPDRECTANGLE),1)
-   CFLAGS += -DDRAW_UPDATE_RECTANGLE
-@@ -76,7 +77,7 @@
+ USE_PYTHON ?= 1
+ PYTHON_VERSION = 2.5
+ 
+ ifeq ($(USE_PYTHON),1)
+   CFLAGS += -I/usr/include/python$(PYTHON_VERSION)/ -DTENNIX_PYTHON
+-  LIBS += -lpython$(PYTHON_VERSION)
++  LIBS += -lpython
+ endif
+ 
+ ifeq ($(NONFREE_LOCATIONS),1)
+@@ -93,7 +94,7 @@
  endif
  
  tennix: $(OBJ) tennix.tnx
