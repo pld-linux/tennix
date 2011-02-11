@@ -1,27 +1,11 @@
---- tennix-1.0/makefile~	2009-03-04 13:28:40.000000000 +0100
-+++ tennix-1.0/makefile	2009-03-04 13:28:00.000000000 +0100
-@@ -36,13 +36,14 @@
+--- tennix-1.1/makefile~	2011-02-11 10:42:35.344805388 +0100
++++ tennix-1.1/makefile	2011-02-11 10:43:13.145319008 +0100
+@@ -37,7 +37,7 @@
+ DATADIR ?= $(DATAROOTDIR)/games
  
  LIBS =
- CFLAGS += -std=c99 -W -Wall -ansi -pedantic -Wcast-qual -Wwrite-strings -DVERSION=\"$(RELEASE)\" -O2 -DPREFIX=\"$(PREFIX)\" -g
-+LDFLAGS =
+-CFLAGS += -W -Wall -ansi -pedantic -Wcast-qual -Wwrite-strings -DVERSION=\"$(RELEASE)\" -O2 -DPREFIX=\"$(PREFIX)\" -g
++CFLAGS += -W -Wall -ansi -pedantic -Wcast-qual -Wwrite-strings -DVERSION=\"$(RELEASE)\" $(OPTFLAGS)
+ CXXFLAGS += $(CFLAGS)
  
  USE_PYTHON ?= 1
- PYTHON_VERSION = 2.5
- 
- ifeq ($(USE_PYTHON),1)
-   CFLAGS += -I/usr/include/python$(PYTHON_VERSION)/ -DTENNIX_PYTHON
--  LIBS += -lpython$(PYTHON_VERSION)
-+  LIBS += -lpython
- endif
- 
- ifeq ($(NONFREE_LOCATIONS),1)
-@@ -93,7 +94,7 @@
- endif
- 
- tennix: $(OBJ) tennix.tnx
--	$(CC) $(CFLAGS)   -o tennix $(OBJ) $(LIBS)
-+	$(CC) $(CFLAGS) $(LDFLAGS)   -o tennix $(OBJ) $(LIBS)
- 	test -f tennix.exe && upx tennix.exe || true 
- 
- ChangeLog:
