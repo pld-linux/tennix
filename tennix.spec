@@ -41,6 +41,7 @@ widowni oraz cieniowanie piłki.
 %build
 %{__make} \
 	CC="%{__cxx}" \
+	CXX="%{__cxx}" \
 	OPTFLAGS="%{rpmcflags}" \
 	LDFLAGS="%{rpmldflags}"
 
