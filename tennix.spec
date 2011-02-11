@@ -1,18 +1,19 @@
 Summary:	A simple two-player tennis game
 Summary(pl.UTF-8):	Prosta gra w tenisa dla dwóch graczy
 Name:		tennix
-Version:	1.0
+Version:	1.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games
 Source0:	http://icculus.org/tennix/downloads/%{name}-%{version}.tar.gz
-# Source0-md5:	b6eba0d14c096a8c35ecaf18fa859fb7
+# Source0-md5:	77cbcf2c948a6641824d55367377374b
 Patch0:		%{name}-makefile.patch
 Patch1:		%{name}-desktop.patch
 Patch2:		%{name}-path.patch
 URL:		http://icculus.org/tennix/
 BuildRequires:	SDL_image-devel
 BuildRequires:	SDL_mixer-devel
+BuildRequires:	python-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -22,10 +23,10 @@ them with a graphics editor like The GIMP), sound effects, stadium
 audience sounds, and ball shadows.
 
 %description -l pl.UTF-8
-Tennix! jest prostą grą w tenisa dla dwóch graczy. Cechuje ją
-proste ładowanie obrazków (które z łatwością można modyfikować
-za pomocą programów graficznych takich jak GIMP), efekty
-dźwiękowe, odgłosy widowni oraz cieniowanie piłki.
+Tennix! jest prostą grą w tenisa dla dwóch graczy. Cechuje ją proste
+ładowanie obrazków (które z łatwością można modyfikować za pomocą
+programów graficznych takich jak GIMP), efekty dźwiękowe, odgłosy
+widowni oraz cieniowanie piłki.
 
 %prep
 %setup -q
@@ -35,20 +36,20 @@ dźwiękowe, odgłosy widowni oraz cieniowanie piłki.
 
 %build
 %{__make} \
-	CC="%{__cc}" \
-	CFLAGS="%{rpmcflags} -DVERSION=\\\"%{version}\\\" `sdl-config --cflags`" \
+	CC="%{__cxx}" \
+	OPTFLAGS="%{rpmcflags}" \
 	LDFLAGS="%{rpmldflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name},%{_desktopdir},%{_pixmapsdir}}
 
-install %{name} $RPM_BUILD_ROOT%{_bindir}
-install tennix.desktop $RPM_BUILD_ROOT%{_desktopdir}
-install data/icon.png $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
+cp -a %{name} $RPM_BUILD_ROOT%{_bindir}
+cp -a tennix.desktop $RPM_BUILD_ROOT%{_desktopdir}
+cp -a data/icon.png $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
 
-install tennix.tnx $RPM_BUILD_ROOT%{_datadir}/%{name}
-cp -r data/* $RPM_BUILD_ROOT%{_datadir}/%{name}
+cp -a tennix.tnx $RPM_BUILD_ROOT%{_datadir}/%{name}
+cp -a data/* $RPM_BUILD_ROOT%{_datadir}/%{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
