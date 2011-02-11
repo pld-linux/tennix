@@ -1,5 +1,5 @@
---- tennix-1.1/makefile~	2011-02-11 10:42:35.344805388 +0100
-+++ tennix-1.1/makefile	2011-02-11 10:43:13.145319008 +0100
+--- tennix-1.1/makefile~	2011-02-10 12:39:39.000000000 +0100
++++ tennix-1.1/makefile	2011-02-11 10:50:25.081229039 +0100
 @@ -37,7 +37,7 @@
  DATADIR ?= $(DATAROOTDIR)/games
  
@@ -9,3 +9,12 @@
  CXXFLAGS += $(CFLAGS)
  
  USE_PYTHON ?= 1
+@@ -94,7 +94,7 @@
+ DATAFILES_OSX = $(DATAFILES) data/Tennix.icns
+ 
+ tennix: $(OBJ) tennix.tnx
+-	$(CC) $(CFLAGS)   -o tennix $(OBJ) $(LIBS)
++	$(CC) $(CFLAGS) $(LDFLAGS) -o tennix $(OBJ) $(LIBS)
+ 	test -f tennix.exe && upx tennix.exe || true 
+ 
+ ChangeLog:
